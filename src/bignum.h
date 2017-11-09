@@ -444,8 +444,9 @@ public:
 
     CBigNum& operator/=(const CBigNum& b)
     {
+        CAutoBN_CTX pctx;
         if (!BN_div(bn, NULL, bn, b.bn, pctx))
-          throw bignum_error("CBigNum::operator%= : BN_div failed")
+          throw bignum_error("CBigNum::operator/= : BN_div failed")
         return *this;
     }
 
